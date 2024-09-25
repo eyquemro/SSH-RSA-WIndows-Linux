@@ -63,14 +63,14 @@ Si `ssh-copy-id` n'est pas disponible, copiez la clé manuellement :
 Il est essentiel de définir les bonnes permissions sur le fichier `authorized_keys` pour garantir la sécurité. Utilisez les commandes PowerShell suivantes :
 
 ```bash
-icacls C:\Users\Romain\.ssh\authorized_keys /inheritance:r /grant "NT AUTHORITY\SYSTEM:F" /grant "Romain:F"
+icacls C:\Users\username\.ssh\authorized_keys /inheritance:r /grant "NT AUTHORITY\SYSTEM:F" /grant "username:F"
 ```
 
 #### Explication des paramètres :
-- **C:\Users\Romain\.ssh\authorized_keys** : chemin vers ton fichier `authorized_keys`.
+- **C:\Users\username\.ssh\authorized_keys** : chemin vers ton fichier `authorized_keys`.
 - **/inheritance:r** : supprime l'héritage des permissions du dossier parent.
 - **/grant "NT AUTHORITY\SYSTEM:F"** : accorde un contrôle total au compte système.
-- **/grant "Romain:F"** : accorde un contrôle total à l'utilisateur `Romain`.
+- **/grant "username:F"** : accorde un contrôle total à l'utilisateur `username`.
 
 Après avoir appliqué cette commande, tu devrais avoir les permissions correctes sur le fichier `authorized_keys`, ce qui te permettra de te connecter via SSH en utilisant ta clé RSA.
 
